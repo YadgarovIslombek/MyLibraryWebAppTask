@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" xmlns:th="http://thyeleaf.org">
+  <title>Personni ko'rish</title>
+</head>
+<body>
+<p th:text = "${person.getId()}"/>
+<p th:text = "${person.getName()}"/>
+<p th:text = "${person.getYear()}"/>
+<div th:each="books : ${personBooks}">
+  <br>
+  <a th:text="${books.getBookName()}">sd</a>
+</div>
+<a href="/library/person">Barcha Userlar qaytish</a>
+</body>
+</html>

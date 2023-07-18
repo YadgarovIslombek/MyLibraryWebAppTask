@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thyeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitob qo'shish</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/library/addBook}" th:object="${book}">
+  <label for="bookName">Enter name</label>
+  <input type="text" th:field="*{bookName}" id="bookName">
+  <div style="color: red" th:if="${#fields.hasErrors('bookName')}" th:errors="*{bookName}">bookName Error</div>
+  <br>
+  <label for="author">author name</label>
+  <input type="text" th:field="*{author}" id="author">
+  <div style="color: red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">author Error</div>
+  <br>
+  <label for="year">Enter year</label>
+  <input type="text" th:field="*{year}" id="year">
+  <div style="color: red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">year Error</div>
+  <br>
+  <input type="submit" value="create">
+
+</form>
+</body>
+</html>
