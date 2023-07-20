@@ -8,6 +8,8 @@
   <name>MyLibraryWebAppTask Maven Webapp</name>
   <url>http://maven.apache.org</url>
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <spring_version>6.0.9</spring_version>
     </properties>
   <dependencies>
@@ -122,15 +124,6 @@
   </dependencies>
   <build>
     <finalName>MyLibraryWebAppTask</finalName>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <configuration>
-                  <source>7</source>
-                  <target>7</target>
-              </configuration>
-          </plugin>
-      </plugins>
+
   </build>
 </project>

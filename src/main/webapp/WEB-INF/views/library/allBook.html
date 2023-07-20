@@ -8,7 +8,9 @@
 <div th:each="book:${book}">
   <br>
   <a th:href="@{book/{id}/edit(id = ${book.getId()})}"  th:text = "${book.getBookName() + ',' + book.getAuthor() + ',' + book.getYear()}">user</a>
-  
+  <form th:method="GET" th:action = "@{/library/book/{id}(id = ${book.getId})}">
+    <input type="submit" value="Ko'rish">
+  </form>
 
 
   <!--  <form th:method="DELETE" th:action = "@{/people/{id}(id = ${person.getId})}">-->

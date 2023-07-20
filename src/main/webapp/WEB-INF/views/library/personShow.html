@@ -8,8 +8,9 @@
 <p th:text = "${person.getId()}"/>
 <p th:text = "${person.getName()}"/>
 <p th:text = "${person.getYear()}"/>
+<b>Olingan Kitoblar ro'yhati:</b>
+<br>
 <div th:each="books : ${personBooks}">
-  <br>
   <a th:text="${books.getBookName()}">sd</a>
 </div>
 <a href="/library/person">Barcha Userlar qaytish</a>

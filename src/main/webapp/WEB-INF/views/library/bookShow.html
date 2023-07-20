@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitobni ko'rish</title>
+</head>
+<body>
+
+
+<p th:text="${book.getId()}"/>
+<p th:text="${book.getBookName()}"/>
+<p th:text="${book.getYear()}"/>
+
+<br>
+<div th:if = "${person_id}">
+    <span>Kitob hozirda quyidagi foydalanuvchida: </span> <span th:text="${person_id.getName()}"></span>
+    <form th:method="PATCH" th:action="@{/library/book/{id}/returnBook(id=${book.getId()})}">
+        <input type="submit" value="O'chirish"/>
+    </form>
+</div>
+
+<a href="/library/book">Barcha Kitoblarga qaytish</a>
+</body>
+</html>

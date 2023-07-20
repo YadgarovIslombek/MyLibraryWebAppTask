@@ -18,7 +18,7 @@ import java.util.List;
 public class LibraryController {
     private final PersonDaO personDaO;
     private final BookDao bookDao;
-
+    @Autowired
     public LibraryController(PersonDaO personDaO, BookDao bookDao) {
         this.personDaO = personDaO;
         this.bookDao = bookDao;
@@ -103,20 +103,32 @@ public class LibraryController {
     public String updateBook(@ModelAttribute("book") @Valid Book book,
                              BindingResult bindingResult, @PathVariable("id") int id){
 
-        if (bindingResult.hasErrors())
-            return "library/editByIdBook";
-        bookDao.updateBook(id, book);
-        return "redirect:/library/book";
+            if (bindingResult.hasErrors())
+                return "library/editByIdBook";
+            bookDao.updateBook(id, book);
+            return "redirect:/library/book";
+
 
     }
-
     @GetMapping("/person/{id}")
     public String showPerson(Model model,@PathVariable("id") int id){
-
         model.addAttribute("personBooks",bookDao.takeBooks(id));
-
         model.addAttribute("person", personDaO.getPersonById(id));
         return "library/personShow";
+    }
+    @GetMapping("/book/{id}")
+    public String showBook(Model model,@PathVariable("id") int id){
+        model.addAttribute("book",bookDao.getBookById(id));
+        model.addAttribute("person_id",bookDao.getOwnerBook(id));
+        return "library/bookShow";
+
+    }
+    @PatchMapping("book/{id}/returnBook")
+    public String returnBook(@PathVariable("id") int id){
+        System.out.println(id);
+        bookDao.returnLibraryBook(id);
+        return "redirect:/library/book";
+
 
     }
 }

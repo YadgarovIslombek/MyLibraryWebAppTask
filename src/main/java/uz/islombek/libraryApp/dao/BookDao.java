@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import uz.islombek.libraryApp.model.Book;
+import uz.islombek.libraryApp.model.Person;
 
 import java.util.List;
 
@@ -29,8 +30,19 @@ public class BookDao {
     public Book getBookById(int id){
         return jdbcTemplate.query("SELECT * FROM Book WHERE id= ?",new Object[]{id},new BeanPropertyRowMapper<>(Book.class)).stream().findAny().orElse(null);
     }
+    public Person getOwnerBook(int id){
+        return jdbcTemplate.query("SELECT person.* FROM Book JOIN Person ON Book.person_id = Person.id WHERE Book.id = ?",new Object[]{id},new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
+    }
+
+    public int takePersonId(int id){
+        return jdbcTemplate.update("select person_id from book where id = ?",new Integer[]{id},new BeanPropertyRowMapper<>(Integer.class));
+    }
     public void updateBook(int id,Book book){
         jdbcTemplate.update("UPDATE Book SET bookName=?,author = ?,year=? where id = ?",book.getBookName(),book.getAuthor(),book.getYear(),id);
+    }
+
+    public void returnLibraryBook(int id){
+        jdbcTemplate.update("UPDATE book set person_id = null where id = ?",id);
     }
 
 }
