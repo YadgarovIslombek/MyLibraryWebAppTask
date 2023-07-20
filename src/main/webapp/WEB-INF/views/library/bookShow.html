@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Kitobni ko'rish</title>
@@ -12,12 +12,26 @@
 <p th:text="${book.getYear()}"/>
 
 <br>
-<div th:if = "${person_id}">
-    <span>Kitob hozirda quyidagi foydalanuvchida: </span> <span th:text="${person_id.getName()}"></span>
+<div th:if = "${owner}">
+    <span>Kitob hozirda quyidagi foydalanuvchida: </span> <span th:text="${owner.getName()}"></span>
     <form th:method="PATCH" th:action="@{/library/book/{id}/returnBook(id=${book.getId()})}">
         <input type="submit" value="O'chirish"/>
     </form>
 </div>
+
+<div th:if="${people}">
+    <span>Kitob bo'sh:</span>
+    <form th:method="PATCH" th:action="@{/library/book/{id}/assign(id=${book.getId()})}">
+        <label for="person">Tanlang</label>
+        <select th:object="${person}" th:field="*{id}" id="person">
+            <option th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getName()}">
+            </option>
+        </select>
+        <input type="submit" value="Tasdiqlash"/>
+    </form>
+</div>
+
+<hr/>
 
 <a href="/library/book">Barcha Kitoblarga qaytish</a>
 </body>

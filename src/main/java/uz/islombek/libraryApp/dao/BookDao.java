@@ -8,6 +8,7 @@ import uz.islombek.libraryApp.model.Book;
 import uz.islombek.libraryApp.model.Person;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BookDao {
@@ -30,8 +31,9 @@ public class BookDao {
     public Book getBookById(int id){
         return jdbcTemplate.query("SELECT * FROM Book WHERE id= ?",new Object[]{id},new BeanPropertyRowMapper<>(Book.class)).stream().findAny().orElse(null);
     }
-    public Person getOwnerBook(int id){
-        return jdbcTemplate.query("SELECT person.* FROM Book JOIN Person ON Book.person_id = Person.id WHERE Book.id = ?",new Object[]{id},new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
+    public Optional<Person> getOwnerBook(int id){
+        return jdbcTemplate.query("SELECT Person.* FROM Book JOIN Person ON Book.person_id = Person.id WHERE Book.id = ?",
+                new Object[]{id},new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
     }
 
     public int takePersonId(int id){
@@ -43,6 +45,9 @@ public class BookDao {
 
     public void returnLibraryBook(int id){
         jdbcTemplate.update("UPDATE book set person_id = null where id = ?",id);
+    }
+    public void assign(int id,Person selectedPerson){
+        jdbcTemplate.update("UPDATE Book SET person_id=? WHERE id=?", selectedPerson.getId(), id);
     }
 
 }
