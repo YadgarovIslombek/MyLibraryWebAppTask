@@ -1,9 +1,19 @@
 package uz.islombek.libraryApp.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "book")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(name = "bookName")
     private String bookName;
+    @Column(name = "author")
     private String  author;
+    @Column(name = "year")
     private int year;
 
     public Book(int id, String bookName, String author, int year) {
@@ -12,6 +22,7 @@ public class Book {
         this.author = author;
         this.year = year;
     }
+
 
     public Book() {
     }

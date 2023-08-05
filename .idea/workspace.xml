@@ -9,25 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="664fbc9e-a50a-4683-b460-b6be73b21cd7" name="Changes" comment="Controllers, views">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/library/bookShow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="664fbc9e-a50a-4683-b460-b6be73b21cd7" name="Changes" comment="100% done!!!!">
+      <change afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/BookDaoWithHibernate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/PersonDaOWithHibernate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/config/SpringConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/controllers/LibraryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/controllers/LibraryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/BookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/PersonDaO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/PersonDaO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/library/allBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/library/allBook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/library/personShow.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/library/personShow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -93,6 +94,9 @@
       <recent name="C:\Users\HP-PAVILION\IdeaProjects\MyLibraryWebAppTask\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\HP-PAVILION\IdeaProjects\MyLibraryWebAppTask\src\main\java\uz\islombek\libraryApp\model" />
       <recent name="C:\Users\HP-PAVILION\IdeaProjects\MyLibraryWebAppTask\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="uz.islombek.libraryApp.dao" />
     </key>
   </component>
   <component name="RunManager">
@@ -196,6 +200,10 @@
       <workItem from="1689682553868" duration="10064000" />
       <workItem from="1689839423371" duration="474000" />
       <workItem from="1689840064586" duration="1527000" />
+      <workItem from="1689851770991" duration="5639000" />
+      <workItem from="1690012032685" duration="676000" />
+      <workItem from="1690446429354" duration="760000" />
+      <workItem from="1691229244580" duration="6011000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1689683097299</created>
@@ -225,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689684098607</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="100% done!!!!">
+      <created>1689855949789</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689855949789</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +250,22 @@
     <MESSAGE value="1" />
     <MESSAGE value="Models,dao," />
     <MESSAGE value="Controllers, views" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers, views" />
+    <MESSAGE value="100% done!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="100% done!!!!" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/uz/islombek/libraryApp/dao/PersonDaOWithHibernate.java</url>
+          <line>18</line>
+          <properties class="uz.islombek.libraryApp.dao.PersonDaOWithHibernate" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

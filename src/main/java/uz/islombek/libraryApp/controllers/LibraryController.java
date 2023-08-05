@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import uz.islombek.libraryApp.dao.BookDao;
+import uz.islombek.libraryApp.dao.BookDaoWithHibernate;
 import uz.islombek.libraryApp.dao.PersonDaO;
+import uz.islombek.libraryApp.dao.PersonDaOWithHibernate;
 import uz.islombek.libraryApp.model.Book;
 import uz.islombek.libraryApp.model.Person;
 
@@ -17,16 +19,15 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/library")
 public class LibraryController {
-    private final PersonDaO personDaO;
-    private final BookDao bookDao;
+    private final PersonDaOWithHibernate personDaO;
+    private final BookDaoWithHibernate bookDao;
 
     @Autowired
-    public LibraryController(PersonDaO personDaO, BookDao bookDao) {
+    public LibraryController(PersonDaOWithHibernate personDaO, BookDaoWithHibernate bookDao) {
         this.personDaO = personDaO;
         this.bookDao = bookDao;
     }
 
-    @Autowired
 
     @GetMapping
     public String getIndexPage() {
@@ -35,7 +36,7 @@ public class LibraryController {
 
     @GetMapping("/person/new")
     public String addPerson(Model model) {
-        model.addAttribute("person", new Person());
+//        model.addAttribute("person", new Person());
         return "library/newPerson";
     }
 
@@ -43,9 +44,9 @@ public class LibraryController {
     public String create(@ModelAttribute("person") @Valid Person person,
                          BindingResult bindingResult) {
 
-        if (bindingResult.hasErrors())
-            return "library/newPerson";
-        personDaO.addPerson(person);
+//        if (bindingResult.hasErrors())
+//            return "library/newPerson";
+//        personDaO.addPerson(person);
         return "redirect:/library";
     }
 
@@ -121,7 +122,7 @@ public class LibraryController {
     @GetMapping("/person/{id}")
     public String showPerson(Model model, @PathVariable("id") int id) {
         model.addAttribute("personBooks", bookDao.takeBooks(id));
-        model.addAttribute("person", personDaO.getPersonById(id));
+       // model.addAttribute("person", personDaO.getPersonById(id));
         return "library/personShow";
     }
 
@@ -140,7 +141,7 @@ public class LibraryController {
         if (ownerBook.isPresent()) {
             model.addAttribute("owner", ownerBook.get());
         } else {
-            model.addAttribute("people", personDaO.getListPerson());
+          //  model.addAttribute("people", personDaO.getListPerson());
         }
         return "library/bookShow";
 
@@ -149,15 +150,15 @@ public class LibraryController {
     @PatchMapping("/book/{id}/returnBook")
     public String returnBook(@PathVariable("id") int id) {
 
-        bookDao.returnLibraryBook(id);
-        return "redirect:/library/book";
+//        bookDao.returnLibraryBook(id);
+        return "redirect:/library/book/" + id;
 
 
     }
 
     @PatchMapping("/book/{id}/assign")
     public String assign(@PathVariable("id") int id, @ModelAttribute("person") Person selectedPerson) {
-        bookDao.assign(id, selectedPerson);
+//        bookDao.assign(id, selectedPerson);
         return "redirect:/library/book/" + id;
     }
 }
